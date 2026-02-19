@@ -1,31 +1,32 @@
+
+import java.util.Stack;
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         // UC1: Welcome Message
         System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 4.0");
+        System.out.println("Version : 5.0");
 
-        // UC4: Two-Pointer logic implementation
-        String input = "radar";
+        // Declare and initialize the input string.
+        String input = "noon";
         System.out.println("Input : " + input);
 
-        // Convert the string into a character array.
-        char[] chars = input.toCharArray();
+        // Create a Stack to store characters.
+        Stack<Character> stack = new Stack<>();
 
-        // Initialize pointers
-        int start = 0;
-        int end = chars.length - 1;
+        // Push each character of the string into the stack.
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
 
         // Assume palindrome initially.
         boolean isPalindrome = true;
 
-        // Continue comparison until pointers cross.
-        while (start < end) {
-            if (chars[start] != chars[end]) {
+        // Iterate again through original string and compare with popped characters.
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
                 isPalindrome = false;
-                break; // Exit loop early if a mismatch is found
+                break;
             }
-            start++;
-            end--;
         }
 
         System.out.println("Is Palindrome? : " + isPalindrome);
