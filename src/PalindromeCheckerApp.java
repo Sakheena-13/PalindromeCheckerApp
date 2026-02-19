@@ -2,22 +2,22 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
         // UC1: Welcome Message
         System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 1.0");
+        System.out.println("Version : 3.0");
 
-        // UC2: Hardcoded Palindrome Logic
-        String input = "madam"; // Hardcoded input
+        String input = "madam"; // You can change this value to test
         String reversed = "";
 
-        // Logic to reverse the string
+        // UC3: Reverse transformation logic using the provided hint
+        // Iterate from the last character to the first.
         for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);
+            reversed = reversed + input.charAt(i);
         }
 
-        // Check if palindrome
-        if (input.equals(reversed)) {
-            System.out.println("The word '" + input + "' is a Palindrome.");
+        // Compare original and reversed strings
+        if (input.equalsIgnoreCase(reversed)) {
+            System.out.println("Result: The string '" + input + "' is a palindrome.");
         } else {
-            System.out.println("The word '" + input + "' is NOT a Palindrome.");
+            System.out.println("Result: The string '" + input + "' is NOT a palindrome.");
         }
 
         System.out.println("System initialized successfully..");
